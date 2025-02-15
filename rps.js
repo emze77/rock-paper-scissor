@@ -22,17 +22,35 @@ function getHumanChoice() {
 function getComputerChoice() {
     computerChoice = Math.random();
     // console.log("computerChoice Number: " + computerChoice);
-    if (computerChoice < 0.33) {
-        computerChoice = "rock";
-    }
-    else if (computerChoice < 0.66) {
-        computerChoice = "paper";
-    }
-    else {
-        computerChoice = "scissor";
+    switch(true) {
+        case (computerChoice < 0.33) : {
+            computerChoice = "rock";
+            break; 
+        }
+        case (computerChoice < 0.67) : {
+            computerChoice ="paper";
+            break;
+        }
+        case (computerChoice <= 1 ) : {
+            computerChoice ="scissor";
+            break;
+        }
     }
     return computerChoice;
-}
+    }
+
+
+//     if (computerChoice < 0.33) {
+//         computerChoice = "rock";
+//     }
+//     else if (computerChoice < 0.66) {
+//         computerChoice = "paper";
+//     }
+//     else {
+//         computerChoice = "scissor";
+//     }
+//     return computerChoice;
+// }
 
 // COMPARE choice human vs. computer
 
@@ -59,11 +77,10 @@ function playRound() {
                     return;
         case ((humanChoice === "scissor") && (computerChoice === "rock")) :
             ++computerScore;
-                    return;        
+                    return;
     }
+    return;
 }
-
-
 
 function getGameResult() {
     if (humanScore === computerScore) {
