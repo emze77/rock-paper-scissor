@@ -22,35 +22,11 @@ function getHumanChoice() {
 function getComputerChoice() {
     computerChoice = Math.random();
     // console.log("computerChoice Number: " + computerChoice);
-    switch(true) {
-        case (computerChoice < 0.33) : {
-            computerChoice = "rock";
-            break; 
-        }
-        case (computerChoice < 0.67) : {
-            computerChoice ="paper";
-            break;
-        }
-        case (computerChoice <= 1 ) : {
-            computerChoice ="scissor";
-            break;
-        }
-    }
-    return computerChoice;
-    }
-
-
-//     if (computerChoice < 0.33) {
-//         computerChoice = "rock";
-//     }
-//     else if (computerChoice < 0.66) {
-//         computerChoice = "paper";
-//     }
-//     else {
-//         computerChoice = "scissor";
-//     }
-//     return computerChoice;
-// }
+    return (computerChoice < 0.33) ? computerChoice = "rock"
+         : (computerChoice < 0.67) ? computerChoice ="paper"
+         : (computerChoice <= 1 )  ? computerChoice ="scissor"
+         : computerChoice = false;
+}
 
 // COMPARE choice human vs. computer
 
