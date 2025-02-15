@@ -38,22 +38,22 @@ function playRound() {
         }
         case ((humanChoice === "rock") && (computerChoice === "scissor")) :
             ++humanScore;
-                    return;
+            return;
         case ((humanChoice === "rock") && (computerChoice === "paper")) :
             ++computerScore;
-                    return;
+            return;
         case ((humanChoice === "paper") && (computerChoice === "rock")) :
             ++humanScore;
-                    return;
+            return;
         case ((humanChoice === "paper") && (computerChoice === "scissor")) :
             ++computerScore;
-                    return;
+            return;
         case ((humanChoice === "scissor") && (computerChoice === "paper")) :
             ++humanScore;
-                    return;
+            return;
         case ((humanChoice === "scissor") && (computerChoice === "rock")) :
             ++computerScore;
-                    return;
+            return;
     }
     return;
 }
@@ -71,7 +71,7 @@ function getGameResult() {
 function playGame() {
     if (roundCounter < 5) {
         getHumanChoice();
-        console.clear()
+        console.clear();
         console.log("humanChoice: " + humanChoice);
         getComputerChoice();
         console.log("computerChoice: " + computerChoice);
@@ -83,9 +83,7 @@ function playGame() {
     } else {
         console.log(getGameResult())
         let temp = window.prompt(getGameResult() + " Are you okay with it?")
-        computerScore = 0;
-        humanScore = 0;
-        roundCounter = 0;
+        computerScore = humanScore = roundCounter = 0;
     }
     playGame()
 }
