@@ -4,6 +4,9 @@ let humanScore = 0;
 let computerScore = 0;
 let roundCounter = 0;
 
+
+// just a merge test!
+
 // READ input of stone / paper / scissor
 
 function getHumanChoice() {
@@ -23,8 +26,8 @@ function getComputerChoice() {
     computerChoice = Math.random();
     // console.log("computerChoice Number: " + computerChoice);
     return (computerChoice < 0.33) ? computerChoice = "rock"
-         : (computerChoice < 0.67) ? computerChoice ="paper"
-         : (computerChoice <= 1 )  ? computerChoice ="scissor"
+         : (computerChoice < 0.67) ? computerChoice = "paper"
+         : (computerChoice <= 1 )  ? computerChoice = "scissor"
          : computerChoice = false;
 }
 
