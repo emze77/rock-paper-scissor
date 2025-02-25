@@ -4,7 +4,9 @@ let humanScore = 0;
 let computerScore = 0;
 let roundCounter = 0;
 
-const playerChoiceSelector = document.querySelector("#playerChoice")
+const playerChoiceSelector = document.querySelector("#playerChoice");
+const playerButtons = document.querySelectorAll(".playerButton")
+const computerButtons = document.querySelectorAll(".computerButton")
 
 let introductionText = document.querySelector("#introductionText");
 let promptPlayerChoice = document.querySelector("#promptPlayerChoice");
@@ -25,32 +27,56 @@ clear.addEventListener('click', () => {
 });
 
 
-
 playerChoiceSelector.addEventListener('click', (e) => {
+    clearPlayerHighlights();
     let target = e.target;
     switch(target.id) {
         case 'playerChoiceRock': 
         humanChoice = "rock";
+        playerChoiceRock.classList.add("highlight");
             break;
         case 'playerChoicePaper': 
         humanChoice = "paper";
+        playerChoicePaper.classList.add("highlight");
             break;
         case 'playerChoiceScissor': 
         humanChoice = "scissor";
+        playerChoiceScissor.classList.add("highlight");
             break;
     }
     playGame();
 });
 
 
-
 function getComputerChoice() {
+    clearComputerHighlights();
     computerChoice = Math.random();
-    return (computerChoice < 0.33) ? computerChoice = "rock"
-         : (computerChoice < 0.67) ? computerChoice = "paper"
-         : (computerChoice <= 1 )  ? computerChoice = "scissor"
-         : computerChoice = false;
+    switch(true) {
+        case (computerChoice < 0.33) :
+            computerChoice = "rock"
+            computerButtons[0].classList.add("highlight");
+            break;
+        case (computerChoice < 0.67) :
+            computerChoice = "paper";
+            computerButtons[1].classList.add("highlight");
+            break;
+        case (computerChoice <= 1 ) :
+            computerChoice = "scissor";
+            computerButtons[2].classList.add("highlight");
+            break;
+        default: false;
+    }
+    return computerChoice;
 }
+
+function clearPlayerHighlights() {
+    playerButtons.forEach(playerButton => playerButton.classList.remove("highlight"))
+}
+
+function clearComputerHighlights() {
+    computerButtons.forEach(computerButton => computerButton.classList.remove("highlight"));
+}
+
 
 function playRound() {
     getComputerChoice();
