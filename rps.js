@@ -4,36 +4,38 @@ let humanScore = 0;
 let computerScore = 0;
 let roundCounter = 0;
 
+const btnPlayerChoiceRock = document.querySelector("#playerChoiceRock")
+const btnPlayerChoicePaper = document.querySelector("#playerChoicePaper")
+const btnPlayerChoiceScissor = document.querySelector("#playerChoiceScissor")
+const playerChoiceSelector = document.querySelector("#playerChoice")
 
-// just a merge test!
 
-// READ input of stone / paper / scissor
+let introductionText = document.querySelector("#introductionText");
+let promptPlayerChoice = document.querySelector("#promptPlayerChoice")
 
-function getHumanChoice() {
-    humanChoice = window.prompt("Do you choose rock, paper or scissor?");
-    humanChoice = humanChoice.toLowerCase();
-    if (humanChoice === "rock" || humanChoice === "paper" || humanChoice === "scissor") {
-        return humanChoice
-        } else {
-            console.log("Do you have some problems with spelling?")
-            getHumanChoice();
-        }
-    }
+introductionText.textContent = "Deine Wahl!"
 
-//  COMPUTE random computer choice
+btnPlayerChoiceRock.addEventListener("click", () => {
+    humanChoice = "rock";
+    playGame();
+});
+    
+btnPlayerChoicePaper.addEventListener("click", () => {
+    humanChoice = "paper";
+    playGame();
+});
+
 
 function getComputerChoice() {
     computerChoice = Math.random();
-    // console.log("computerChoice Number: " + computerChoice);
     return (computerChoice < 0.33) ? computerChoice = "rock"
          : (computerChoice < 0.67) ? computerChoice = "paper"
          : (computerChoice <= 1 )  ? computerChoice = "scissor"
          : computerChoice = false;
 }
 
-// COMPARE choice human vs. computer
-
-function playRound() {
+function playRound(humanChoice) {
+    getComputerChoice();
     switch (true) {
         case (humanChoice === computerChoice): {
             console.log("equal!");
@@ -72,23 +74,28 @@ function getGameResult() {
 }
 
 function playGame() {
-    if (roundCounter < 5) {
-        getHumanChoice();
-        console.clear();
-        console.log("humanChoice: " + humanChoice);
-        getComputerChoice();
-        console.log("computerChoice: " + computerChoice);
-        playRound();
-        ++roundCounter;
-        console.log("humanScore is " + humanScore);
-        console.log("computerScore is " + computerScore);
-        console.log("Played Rounds: " + roundCounter);
+    promptPlayerChoice.textContent = `Your choice: ${humanChoice}!`;
+//     humanChoice = "rock"
+
+
+    // if (roundCounter < 5) {
+        
+        // console.clear();
+        // console.log("humanChoice: " + humanChoice);
+        // getComputerChoice();
+        // console.log("computerChoice: " + computerChoice);
+        // playRound();
+        // ++roundCounter;
+        // console.log("humanScore is " + humanScore);
+        // console.log("computerScore is " + computerScore);
+        // console.log("Played Rounds: " + roundCounter);
     // } else {
     //     console.log(getGameResult())
     //     let temp = window.prompt(getGameResult() + " Are you okay with it?")
-    computerScore = humanScore = roundCounter = 0; // verschoben aus ELSE
-    }
-    playGame()
+    // computerScore = humanScore = roundCounter = 0; // verschoben aus ELSE
+    // }
+    // playGame()
+    return;
 }
 
 // playGame()

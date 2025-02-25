@@ -3,22 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="rps.js"></script>
     <title>Rock Paper Scissor</title>
+    <link rel="shortcut icon" href="#">
 </head>
 <body>
     <section id="header">
         <h1>ROCK // PAPER // SCISSOR</h1>
+        <p id="introductionText"></p>
     </section>
     <section id="playerChoice">
-        <button type="button" id="rock" class="playerButton">ROCK</button>
-        <button type="button" id="paper" class="playerButton">PAPER</button>
-        <button type="button" id="scissor" class="playerButton">SCISSOR</button>
+        <button type="button" id="playerChoiceRock" class="playerButton">ROCK</button>
+        <button type="button" id="playerChoicePaper" class="playerButton">PAPER</button>
+        <button type="button" id="playerChoiceScissor" class="playerButton">SCISSOR</button>
     </section>
     <section id="computerChoice">
-        <button type="button" id="rock" class="computerButton">ROCK</button>
-        <button type="button" id="paper" class="computerButton">PAPER</button>
-        <button type="button" id="scissor" class="computerButton">SCISSOR</button>
+        <button type="button" id="computerChoiceRock" class="computerButton">ROCK</button>
+        <button type="button" id="computerChoicePaper" class="computerButton">PAPER</button>
+        <button type="button" id="computerChoiceScissor" class="computerButton">SCISSOR</button>
     </section>
+    <section id="ending">
+        <div id="promptPlayerChoice"></div>
+    </section>
+
+    <script src="rps.js"></script>
 </body>
 </html>
