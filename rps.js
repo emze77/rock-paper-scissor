@@ -83,15 +83,15 @@ function playGame() {
         console.log("humanScore is " + humanScore);
         console.log("computerScore is " + computerScore);
         console.log("Played Rounds: " + roundCounter);
-    } else {
-        console.log(getGameResult())
-        let temp = window.prompt(getGameResult() + " Are you okay with it?")
-        computerScore = humanScore = roundCounter = 0;
+    // } else {
+    //     console.log(getGameResult())
+    //     let temp = window.prompt(getGameResult() + " Are you okay with it?")
+    computerScore = humanScore = roundCounter = 0; // verschoben aus ELSE
     }
     playGame()
 }
 
-playGame()
+// playGame()
 
 
 
