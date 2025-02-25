@@ -7,9 +7,24 @@ let roundCounter = 0;
 const playerChoiceSelector = document.querySelector("#playerChoice")
 
 let introductionText = document.querySelector("#introductionText");
-let promptPlayerChoice = document.querySelector("#promptPlayerChoice")
+let promptPlayerChoice = document.querySelector("#promptPlayerChoice");
+let promptComputerChoice = document.querySelector("#promptComputerChoice");
+let promptScore = document.querySelector("#score");
+let clear = document.querySelector("#clear");
+
 
 introductionText.textContent = "Deine Wahl!"
+
+clear.addEventListener('click', () => {
+    console.log("clear button pressed")
+    humanScore = 0;
+    computerScore = 0;
+    roundCounter = 0;
+    promptInterim();
+    introductionText.textContent = "Deine Wahl!"
+});
+
+
 
 playerChoiceSelector.addEventListener('click', (e) => {
     let target = e.target;
@@ -37,7 +52,7 @@ function getComputerChoice() {
          : computerChoice = false;
 }
 
-function playRound(humanChoice) {
+function playRound() {
     getComputerChoice();
     switch (true) {
         case (humanChoice === computerChoice): {
@@ -69,8 +84,8 @@ function playRound(humanChoice) {
 function promptInterim() {
     promptPlayerChoice.textContent = `Your choice: ${humanChoice}`;
     promptComputerChoice.textContent = `Computer choice: ${computerChoice}`;
-    promptRoundCounter = `Round: ${roundCounter}`;
-    promtScore = d
+    promptRoundCounter.textContent = `Round: ${roundCounter}`;
+    promptScore.textContent = `Player ${humanScore} : ${computerScore} Computer`;
     return;
 }
 
@@ -85,29 +100,13 @@ function getGameResult() {
 }
 
 function playGame() {
-    playRound();
-    ++roundCounter;
-    promptInterim();
-//     humanChoice = "rock"
-
-
-    // if (roundCounter < 5) {
-        
-        // console.clear();
-        // console.log("humanChoice: " + humanChoice);
-        // getComputerChoice();
-        // console.log("computerChoice: " + computerChoice);
-        // playRound();
-        // ++roundCounter;
-        // console.log("humanScore is " + humanScore);
-        // console.log("computerScore is " + computerScore);
-        // console.log("Played Rounds: " + roundCounter);
-    // } else {
-    //     console.log(getGameResult())
-    //     let temp = window.prompt(getGameResult() + " Are you okay with it?")
-    // computerScore = humanScore = roundCounter = 0; // verschoben aus ELSE
-    // }
-    // playGame()
+    if (roundCounter < 5) {
+        playRound();
+        ++roundCounter;
+        promptInterim();
+    } else {
+        introductionText.textContent = getGameResult();
+    }
     return;
 }
 
