@@ -4,26 +4,29 @@ let humanScore = 0;
 let computerScore = 0;
 let roundCounter = 0;
 
-const btnPlayerChoiceRock = document.querySelector("#playerChoiceRock")
-const btnPlayerChoicePaper = document.querySelector("#playerChoicePaper")
-const btnPlayerChoiceScissor = document.querySelector("#playerChoiceScissor")
 const playerChoiceSelector = document.querySelector("#playerChoice")
-
 
 let introductionText = document.querySelector("#introductionText");
 let promptPlayerChoice = document.querySelector("#promptPlayerChoice")
 
 introductionText.textContent = "Deine Wahl!"
 
-btnPlayerChoiceRock.addEventListener("click", () => {
-    humanChoice = "rock";
+playerChoiceSelector.addEventListener('click', (e) => {
+    let target = e.target;
+    switch(target.id) {
+        case 'playerChoiceRock': 
+        humanChoice = "rock";
+            break;
+        case 'playerChoicePaper': 
+        humanChoice = "paper";
+            break;
+        case 'playerChoiceScissor': 
+        humanChoice = "scissor";
+            break;
+    }
     playGame();
 });
-    
-btnPlayerChoicePaper.addEventListener("click", () => {
-    humanChoice = "paper";
-    playGame();
-});
+
 
 
 function getComputerChoice() {
@@ -63,6 +66,14 @@ function playRound(humanChoice) {
     return;
 }
 
+function promptInterim() {
+    promptPlayerChoice.textContent = `Your choice: ${humanChoice}`;
+    promptComputerChoice.textContent = `Computer choice: ${computerChoice}`;
+    promptRoundCounter = `Round: ${roundCounter}`;
+    promtScore = d
+    return;
+}
+
 function getGameResult() {
     if (humanScore === computerScore) {
         return "Equal!";
@@ -74,7 +85,9 @@ function getGameResult() {
 }
 
 function playGame() {
-    promptPlayerChoice.textContent = `Your choice: ${humanChoice}!`;
+    playRound();
+    ++roundCounter;
+    promptInterim();
 //     humanChoice = "rock"
 
 
