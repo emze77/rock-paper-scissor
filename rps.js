@@ -3,6 +3,7 @@ let computerChoice;
 let humanScore = 0;
 let computerScore = 0;
 let roundCounter = 0;
+let timeout = false;
 
 const playerChoiceSelector = document.querySelector("#playerChoice");
 const playerButtons = document.querySelectorAll(".playerButton")
@@ -31,6 +32,7 @@ clear.addEventListener('click', () => {
 
 
 playerChoiceSelector.addEventListener('click', (e) => {
+    if (timeout === true) return;
     clearPlayerHighlights();
     let target = e.target;
     switch(target.id) {
@@ -55,7 +57,6 @@ playerChoiceSelector.addEventListener('click', (e) => {
 
 
 function getComputerChoice() {
-    clearComputerHighlights();
     computerChoice = Math.random();
     switch(true) {
         case (computerChoice < 0.33) :
@@ -89,6 +90,7 @@ function clearComputerHighlights() {
 
 function playRound() {
     getComputerChoice();
+    // getComputerChoice();
     switch (true) {
         case (humanChoice === computerChoice): {
             console.log("equal!");
@@ -122,13 +124,13 @@ function playRound() {
     return;
 }
 
-function promptInterim() {
-    promptPlayerChoice.textContent = `Your choice: ${humanChoice}`;
-    promptComputerChoice.textContent = `Computer choice: ${computerChoice}`;
-    promptRoundCounter.textContent = `Round: ${roundCounter}`;
-    promptScore.textContent = `Player ${humanScore} : ${computerScore} Computer`;
-    return;
-}
+// function promptInterim() {
+//     promptPlayerChoice.textContent = `Your choice: ${humanChoice}`;
+//     promptComputerChoice.textContent = `Computer choice: ${computerChoice}`;
+//     promptRoundCounter.textContent = `Round: ${roundCounter}`;
+//     promptScore.textContent = `Player ${humanScore} : ${computerScore} Computer`;
+//     return;
+// }
 
 function getGameResult() {
     if (humanScore === computerScore) {
@@ -142,12 +144,20 @@ function getGameResult() {
 
 function playGame() {
     if (roundCounter < 5) {
-        playRound();
+        clearComputerHighlights();
+        timeout = true;
+        setTimeout(timeoutFunction, 1000);
+        setTimeout(playRound, 1000);
         ++roundCounter;
-        promptInterim();
+        // promptInterim();
     } else {
         introductionText.textContent = getGameResult();
     }
+    return;
+}
+
+function timeoutFunction () {
+    timeout = false;
     return;
 }
 
