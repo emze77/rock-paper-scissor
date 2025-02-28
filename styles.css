@@ -28,7 +28,7 @@ h1, #vs {
     text-align: center;
 }
 
-#warArea {
+#warArea, #counterArea {
     display: flex;
 
     /* height: 400px; */
@@ -87,7 +87,13 @@ h1, #vs {
     display: flex;
     justify-content: space-around ;
     align-items: center;
-    border: 2px solid red;
+    /* border: 2px solid red; */
+}
+
+.counter {
+    font-family: "Shadows Into Light", cursive;
+    font-weight: 400;
+    font-size: 3em;
 }
 
 #clear {

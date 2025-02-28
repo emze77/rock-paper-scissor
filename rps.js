@@ -9,8 +9,8 @@ const playerButtons = document.querySelectorAll(".playerButton")
 const computerButtons = document.querySelectorAll(".computerButton")
 
 let introductionText = document.querySelector("#introductionText");
-// let promptPlayerChoice = document.querySelector("#promptPlayerChoice");
-// let promptComputerChoice = document.querySelector("#promptComputerChoice");
+let playerCounter = document.querySelector("#counterPlayer");
+let computerCounter = document.querySelector("#counterComputer");
 let promptScore = document.querySelector("#score");
 let clear = document.querySelector("#clear");
 
