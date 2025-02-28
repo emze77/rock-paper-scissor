@@ -11,7 +11,6 @@ const computerButtons = document.querySelectorAll(".computerButton")
 let introductionText = document.querySelector("#introductionText");
 let playerCounter = document.querySelector("#counterPlayer");
 let computerCounter = document.querySelector("#counterComputer");
-let promptScore = document.querySelector("#score");
 let clear = document.querySelector("#clear");
 
 
@@ -22,7 +21,9 @@ clear.addEventListener('click', () => {
     humanScore = 0;
     computerScore = 0;
     roundCounter = 0;
-    promptInterim();
+    computerCounter.textContent = "";
+    playerCounter.textContent = "";
+    // promptInterim();
     clearComputerHighlights();
     clearPlayerHighlights();
     introductionText.textContent = "Deine Wahl!"
@@ -75,7 +76,10 @@ function getComputerChoice() {
 }
 
 function clearPlayerHighlights() {
-    playerButtons.forEach(playerButton => playerButton.classList.remove("highlight"))
+    playerButtons.forEach(playerButton => {
+        playerButton.classList.remove("highlight");
+        playerButton.classList.add("bgWhite");
+})
 }
 
 function clearComputerHighlights() {
@@ -92,21 +96,27 @@ function playRound() {
         }
         case ((humanChoice === "rock") && (computerChoice === "scissor")) :
             ++humanScore;
+            playerCounter.textContent += "I";
             return;
         case ((humanChoice === "rock") && (computerChoice === "paper")) :
             ++computerScore;
+            computerCounter.textContent += "I";
             return;
         case ((humanChoice === "paper") && (computerChoice === "rock")) :
             ++humanScore;
+            playerCounter.textContent += "I";
             return;
         case ((humanChoice === "paper") && (computerChoice === "scissor")) :
             ++computerScore;
+            computerCounter.textContent += "I";
             return;
         case ((humanChoice === "scissor") && (computerChoice === "paper")) :
             ++humanScore;
+            playerCounter.textContent += "I";
             return;
         case ((humanChoice === "scissor") && (computerChoice === "rock")) :
             ++computerScore;
+            computerCounter.textContent += "I";
             return;
     }
     return;
