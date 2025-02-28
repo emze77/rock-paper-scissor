@@ -1,4 +1,100 @@
-.highlight {
-    background-color: black;
-    color: white;
+html {
+    width: 100vw;
+}
+
+body {
+    /* background-image: url("img/empty-art-galler_CC-BY-NC-ND_Regan-Vercruysse.jpg");
+    background-position: center top;
+    background-attachment: fixed; */
+    width: 80vw;
+    margin: 3em auto;
+    /* border: 2px solid red; */
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+  
+
+h1, #vs {
+    text-align: center;
+    font-family: "Shadows Into Light", cursive;
+    font-weight: 400;
+    font-size: 3em;
+    /* border: 2px solid green; */
+    margin-bottom: -15px;
+    margin-top: 0;
+}
+
+#header > p, #clear {
+    font-size: 1.5em;
+    text-align: center;
+}
+
+#warArea {
+    display: flex;
+
+    /* height: 400px; */
+}
+
+.sideArea {
+    /* border: 2px solid orange; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    flex: 1;
+    padding: 10px; 
+}
+
+.midArea {
+    /* border: 2px solid orange; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    flex: 0 1 auto;
+    padding: 10px; 
+}
+
+.sideArea > .button, .sideArea > .computerChoice {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.sideArea > div, .sideArea > button {
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+    border-radius: 15px;
+    background-color: white;
+}
+
+.sideArea > button {
+    border: 5px solid #b08699;
+}
+
+.sideArea > div {
+    border: 5px solid #5c8a73;
+}
+
+#warArea > .sideArea > .highlight {
+    background-color: #c74300;
+    color: black;
+}
+
+
+#ending {
+    display: flex;
+    justify-content: space-around ;
+    align-items: center;
+    border: 2px solid red;
+}
+
+#clear {
+    background-color: white;
+    border: none;
+    /* display: block; */
+    /* margin: 0 auto; */
+    padding: 7px 20px;
+    border-radius: 10px;
 }

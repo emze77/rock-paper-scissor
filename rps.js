@@ -9,13 +9,13 @@ const playerButtons = document.querySelectorAll(".playerButton")
 const computerButtons = document.querySelectorAll(".computerButton")
 
 let introductionText = document.querySelector("#introductionText");
-let promptPlayerChoice = document.querySelector("#promptPlayerChoice");
-let promptComputerChoice = document.querySelector("#promptComputerChoice");
+// let promptPlayerChoice = document.querySelector("#promptPlayerChoice");
+// let promptComputerChoice = document.querySelector("#promptComputerChoice");
 let promptScore = document.querySelector("#score");
 let clear = document.querySelector("#clear");
 
 
-introductionText.textContent = "Deine Wahl!"
+introductionText.textContent = "Your Turn!"
 
 clear.addEventListener('click', () => {
     console.log("clear button pressed")
@@ -23,6 +23,8 @@ clear.addEventListener('click', () => {
     computerScore = 0;
     roundCounter = 0;
     promptInterim();
+    clearComputerHighlights();
+    clearPlayerHighlights();
     introductionText.textContent = "Deine Wahl!"
 });
 
@@ -31,15 +33,18 @@ playerChoiceSelector.addEventListener('click', (e) => {
     clearPlayerHighlights();
     let target = e.target;
     switch(target.id) {
-        case 'playerChoiceRock': 
+        case "playerChoiceRock":
+        case "playerSymbolRock": 
         humanChoice = "rock";
         playerChoiceRock.classList.add("highlight");
             break;
-        case 'playerChoicePaper': 
+        case 'playerChoicePaper':
+        case "playerSymbolPaper":
         humanChoice = "paper";
         playerChoicePaper.classList.add("highlight");
             break;
-        case 'playerChoiceScissor': 
+        case 'playerChoiceScissor':
+        case "playerSymbolScissor":
         humanChoice = "scissor";
         playerChoiceScissor.classList.add("highlight");
             break;

@@ -3,34 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&family=Shadows+Into+Light&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <title>Rock Paper Scissor</title>
     <link rel="shortcut icon" href="#">
 </head>
 <body>
     <section id="header">
-        <h1>ROCK // PAPER // SCISSOR</h1>
+        <h1>ROCK X PAPER X SCISSOR</h1>
         <p id="introductionText"></p>
     </section>
-    <section id="playerChoice">
-        <button type="button" id="playerChoiceRock" class="playerButton button">ROCK</button>
-        <button type="button" id="playerChoicePaper" class="playerButton button">PAPER</button>
-        <button type="button" id="playerChoiceScissor" class="playerButton button">SCISSOR</button>
-    </section>
-    <section id="computerChoice">
-        <button type="button" id="computerChoiceRock" class="computerButton button">ROCK</button>
-        <button type="button" id="computerChoicePaper" class="computerButton button">PAPER</button>
-        <button type="button" id="computerChoiceScissor" class="computerButton button">SCISSOR</button>
+    <section id="warArea">
+        <div id="playerChoice" class="sideArea">
+            <button type="button" id="playerChoiceRock" class="playerButton button playerRock">
+                <img id="playerSymbolRock" src="/img/rock-stein.png" alt="symbol of a rock" width="70px" class="rps-img player-rock">
+            </button>
+            <button type="button" id="playerChoicePaper" class="playerButton button">
+                <img id="playerSymbolPaper" src="/img/paper-papier.png" alt="symbol of a paper" width="70px" class="rps-img player-img">
+            </button>
+            <button type="button" id="playerChoiceScissor" class="playerButton button">
+                <img id="playerSymbolScissor" src="/img/schere-scissor.png" alt="symbol of a scissor" width="55px" class="rps-img player-img">
+            </button>
+        </div>
+        <div class="midArea">
+            <div id="vs">VS.</div>
+        </div>
+        <div id="computerChoice" class="sideArea">
+            <div id="computerChoiceRock" class="computerChoice">
+                <img src="/img/rock-stein.png" alt="symbol of a rock" width="70px" class="rps-img">
+            </div>
+            <div id="computerChoicePaper" class="computerChoice">
+                <img src="/img/paper-papier.png" alt="symbol of a paper" width="70px" class="rps-img">
+            </div>
+            <div id="computerChoiceScissor" class="computerChoice">
+                <img src="/img/schere-scissor.png" alt="symbol of a scissor" width="55px" class="rps-img">
+            </div>
+        </div>
     </section>
     <section id="ending">
-        <div id="promptPlayerChoice"></div>
-        <div id="promptComputerChoice"></div>
-        <div id="promptRoundCounter"></div>
-        <div id="score"></div>
+        <div id="counterPlayer" class="counter">II</div>
+        <button type="button" id="clear" class="">clear</button>
+        <div id="counterComputer" class="counter">III</div>
+        <!-- <div id="promptPlayerChoice"></div>
+        <div id="promptComputerChoice"></div> -->
     </section>
-    <button type="button" id="clear" class="button">clear</button>
-
-
+    <div id="promptRoundCounter"></div>
+    <div id="score"></div>
     <script src="rps.js"></script>
 </body>
 </html>
