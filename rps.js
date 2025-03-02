@@ -14,21 +14,20 @@ let computerCounter = document.querySelector("#counterComputer");
 let roundCounterPrompt = document.querySelector("#roundCounterPrompt");
 let clear = document.querySelector("#clear");
 
+clear.addEventListener('click', clearComplete);
 
-introductionText.textContent = "Choose to start!"
-
-clear.addEventListener('click', () => {
-    console.log("clear button pressed")
+function clearComplete () {
     humanScore = 0;
     computerScore = 0;
     roundCounter = 0;
     computerCounter.textContent = "";
     playerCounter.textContent = "";
-    // promptInterim();
     clearComputerHighlights();
     clearPlayerHighlights();
-    introductionText.textContent = "Deine Wahl!"
-});
+    newGame();
+    return;
+}
+    
 
 
 playerChoiceSelector.addEventListener('click', (e) => {
