@@ -86,6 +86,10 @@ h1, #vs {
     background-color: green;
 }
 
+#introductionText {
+    color: #c74300;
+}
+
 #ending {
     display: flex;
     justify-content: space-around ;

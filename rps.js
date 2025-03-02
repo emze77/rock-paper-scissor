@@ -9,13 +9,13 @@ const playerChoiceSelector = document.querySelector("#playerChoice");
 const playerButtons = document.querySelectorAll(".playerButton")
 const computerButtons = document.querySelectorAll(".computerButton")
 
-let introductionText = document.querySelector("#introductionText");
 let playerCounter = document.querySelector("#counterPlayer");
 let computerCounter = document.querySelector("#counterComputer");
+let roundCounterPrompt = document.querySelector("#roundCounterPrompt");
 let clear = document.querySelector("#clear");
 
 
-introductionText.textContent = "Your Turn!"
+introductionText.textContent = "Choose to start!"
 
 clear.addEventListener('click', () => {
     console.log("clear button pressed")
@@ -143,15 +143,17 @@ function getGameResult() {
 }
 
 function playGame() {
-    if (roundCounter < 5) {
-        clearComputerHighlights();
-        timeout = true;
-        setTimeout(timeoutFunction, 1000);
-        setTimeout(playRound, 1000);
-        ++roundCounter;
-        // promptInterim();
-    } else {
+    clearComputerHighlights();
+    timeout = true;
+    setTimeout(timeoutFunction, 1000);
+    setTimeout(playRound, 1000);
+    ++roundCounter;
+    introductionText.textContent = `Runde: ${roundCounter}`;
+    if (roundCounter === 5) {
         introductionText.textContent = getGameResult();
+        clearComputerHighlights();
+        clearPlayerHighlights();
+        setTimeout(newGame, 2000)
     }
     return;
 }
@@ -159,6 +161,10 @@ function playGame() {
 function timeoutFunction () {
     timeout = false;
     return;
+}
+
+function newGame () {
+    introductionText.textContent = "Choose to start!";
 }
 
 // playGame()
