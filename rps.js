@@ -5,7 +5,7 @@ let computerScore = 0;
 let roundCounter = 0;
 let timeout = false;
 
-const playerChoiceSelector = document.querySelector("#playerChoice");
+const playerChoiceSelector = document.querySelectorAll(".playerArea");
 const playerButtons = document.querySelectorAll(".playerButton")
 const computerButtons = document.querySelectorAll(".computerButton")
 
@@ -21,34 +21,40 @@ function clearComplete () {
     roundCounter = 0;
     computerCounter.textContent = "";
     playerCounter.textContent = "";
-    clearComputerHighlights();
-    clearPlayerHighlights();
-    newGame();
+    clearHighlights();
+    // newGame();
     return;
 }
+
+function clearHighlights() {
+    playerButtons.forEach(playerButton => playerButton.classList.remove("highlight"));
+    computerButtons.forEach(computerButton => computerButton.classList.remove("highlight"));
+}
     
-playerChoiceSelector.addEventListener('click', (e) => {
-    if (timeout === true) return;
-    clearPlayerHighlights();
-    let target = e.target;
-    switch(target.id) {
-        case "playerChoiceRock":
-        case "playerSymbolRock": 
-        humanChoice = "rock";
-        playerChoiceRock.classList.add("highlight");
-            break;
-        case 'playerChoicePaper':
-        case "playerSymbolPaper":
-        humanChoice = "paper";
-        playerChoicePaper.classList.add("highlight");
-            break;
-        case 'playerChoiceScissor':
-        case "playerSymbolScissor":
-        humanChoice = "scissor";
-        playerChoiceScissor.classList.add("highlight");
-            break;
-    }
-    playGame();
+playerChoiceSelector.forEach(item => {
+    item.addEventListener('click', (e) => {
+        if (timeout === true) return;
+        clearHighlights();
+        let target = e.target;
+        switch(target.id) {
+            case "playerChoiceRock":
+            case "playerSymbolRock": 
+            humanChoice = "rock";
+            playerChoiceRock.classList.add("highlight");
+                break;
+            case 'playerChoicePaper':
+            case "playerSymbolPaper":
+            humanChoice = "paper";
+            playerChoicePaper.classList.add("highlight");
+                break;
+            case 'playerChoiceScissor':
+            case "playerSymbolScissor":
+            humanChoice = "scissor";
+            playerChoiceScissor.classList.add("highlight");
+                break;
+        }
+        playGame();
+    })
 });
 
 
@@ -72,21 +78,11 @@ function getComputerChoice() {
     return computerChoice;
 }
 
-function clearPlayerHighlights() {
-    playerButtons.forEach(playerButton => {
-        playerButton.classList.remove("highlight");
-        playerButton.classList.add("bgWhite");
-})
-}
 
-function clearComputerHighlights() {
-    computerButtons.forEach(computerButton => computerButton.classList.remove("highlight"));
-}
 
 
 function playRound() {
     getComputerChoice();
-    // getComputerChoice();
     switch (true) {
         case (humanChoice === computerChoice): {
             console.log("equal!");
@@ -131,21 +127,20 @@ function getGameResult() {
 }
 
 function playGame() {
-    clearComputerHighlights();
     timeout = true;
-    setTimeout(timeoutFunction, 1000);
+    setTimeout(preventInbetweenClicks, 1000);
     setTimeout(playRound, 1000);
     ++roundCounter;
     introductionText.textContent = `Runde: ${roundCounter}`;
-    if (roundCounter === 6) {
+    if (roundCounter === 5) {
         introductionText.textContent = getGameResult();
         clearComplete();
-        setTimeout(newGame, 3000)
+        // setTimeout(newGame, 3000)
     }
     return;
 }
 
-function timeoutFunction () {
+function preventInbetweenClicks () {
     timeout = false;
     return;
 }
