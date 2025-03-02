@@ -4,6 +4,7 @@ let humanScore = 0;
 let computerScore = 0;
 let roundCounter = 0;
 let timeout = false;
+let gameToEnd = false;
 
 const playerChoiceSelector = document.querySelectorAll(".playerArea");
 const playerButtons = document.querySelectorAll(".playerButton")
@@ -22,7 +23,7 @@ function clearComplete () {
     computerCounter.textContent = "";
     playerCounter.textContent = "";
     clearHighlights();
-    // newGame();
+    if (gameToEnd === false) introductionText.textContent = "Choose to start!";
     return;
 }
 
@@ -34,6 +35,10 @@ function clearHighlights() {
 playerChoiceSelector.forEach(item => {
     item.addEventListener('click', (e) => {
         if (timeout === true) return;
+        if (gameToEnd === true) {
+            clearComplete();
+            gameToEnd = false;
+        }
         clearHighlights();
         let target = e.target;
         switch(target.id) {
@@ -133,9 +138,10 @@ function playGame() {
     ++roundCounter;
     introductionText.textContent = `Runde: ${roundCounter}`;
     if (roundCounter === 5) {
-        introductionText.textContent = getGameResult();
-        clearComplete();
-        // setTimeout(newGame, 3000)
+        setTimeout(function() {
+            introductionText.textContent = getGameResult();
+            gameToEnd = true;
+        }, 1000)
     }
     return;
 }
