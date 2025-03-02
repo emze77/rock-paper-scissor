@@ -11,7 +11,6 @@ const computerButtons = document.querySelectorAll(".computerButton")
 
 let playerCounter = document.querySelector("#counterPlayer");
 let computerCounter = document.querySelector("#counterComputer");
-let roundCounterPrompt = document.querySelector("#roundCounterPrompt");
 let clear = document.querySelector("#clear");
 
 clear.addEventListener('click', clearComplete);
@@ -28,8 +27,6 @@ function clearComplete () {
     return;
 }
     
-
-
 playerChoiceSelector.addEventListener('click', (e) => {
     if (timeout === true) return;
     clearPlayerHighlights();
@@ -123,21 +120,13 @@ function playRound() {
     return;
 }
 
-// function promptInterim() {
-//     promptPlayerChoice.textContent = `Your choice: ${humanChoice}`;
-//     promptComputerChoice.textContent = `Computer choice: ${computerChoice}`;
-//     promptRoundCounter.textContent = `Round: ${roundCounter}`;
-//     promptScore.textContent = `Player ${humanScore} : ${computerScore} Computer`;
-//     return;
-// }
-
 function getGameResult() {
     if (humanScore === computerScore) {
         return "Equal!";
     } else if (humanScore > computerScore) {
         return "Congratulation! You've won!";
     } else {
-        return "You've lost! =(";
+        return "You've lost!";
     }
 }
 
@@ -148,11 +137,10 @@ function playGame() {
     setTimeout(playRound, 1000);
     ++roundCounter;
     introductionText.textContent = `Runde: ${roundCounter}`;
-    if (roundCounter === 5) {
+    if (roundCounter === 6) {
         introductionText.textContent = getGameResult();
-        clearComputerHighlights();
-        clearPlayerHighlights();
-        setTimeout(newGame, 2000)
+        clearComplete();
+        setTimeout(newGame, 3000)
     }
     return;
 }

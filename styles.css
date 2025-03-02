@@ -54,6 +54,9 @@ h1, #vs {
     padding: 10px; 
 }
 
+
+
+
 .sideArea > .button, .sideArea > .computerButton {
     display: flex;
     justify-content: center;
