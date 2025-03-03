@@ -1,5 +1,6 @@
 html {
     width: 100vw;
+    background-color: #F2F2F2;
 }
 
 body {
@@ -7,8 +8,8 @@ body {
     background-position: center top;
     background-attachment: fixed; */
     width: 80vw;
+    max-width: 600px;
     margin: 3em auto;
-    /* border: 2px solid red; */
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
   
@@ -54,22 +55,18 @@ h1, #vs {
     padding: 10px; 
 }
 
-
-
-
 .sideArea > .button, .sideArea > .computerButton {
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-
 .sideArea > div, .sideArea > button {
     width: 100px;
     height: 100px;
     margin: 20px;
     border-radius: 15px;
-    background-color: white;
+    background-color: #D9D9D9;
 }
 
 .sideArea > button {
@@ -81,13 +78,11 @@ h1, #vs {
 }
 
 #warArea > .sideArea > .highlight {
-    background-color: #c74300;
+    background-color: #949494;
     color: black;
+    filter: drop-shadow(5px 5px 4px #0d0d0d4f);
 }
 
-.bgWhite {
-    background-color: green;
-}
 
 #introductionText {
     color: #c74300;
@@ -107,10 +102,7 @@ h1, #vs {
 }
 
 #clear {
-    background-color: white;
-    /* border: none; */
-    /* display: block; */
-    /* margin: 0 auto; */
+    background-color: #D9D9D9;
     padding: 7px 20px;
     border-radius: 10px;
 }
